@@ -1,6 +1,7 @@
 import players as ps
 import assets.questions as qs
 import assets.strings as ss
+import draws as ds
 players_number = int(input(ss.players_input))
 class Main:
     def game_start(self, number):
@@ -19,10 +20,12 @@ class Main:
                 players_list.extend(ps.players_bots)
                 print(ss.start_game_info)
                 print(*players_list, sep=', ')
+            ps.players_active.extend(players_list)
             print(qs.title.word_shuffle())
             print(qs.title.word_pick())
+            print(ds.draws.random_field())
+
 st = Main()
 st.game_start(players_number)
-
 
 
