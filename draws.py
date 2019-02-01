@@ -1,3 +1,4 @@
+import random, math
 import players as ps
 import circle as ce
 import assets.strings as ss
@@ -12,14 +13,13 @@ class Draws:
                 print(ss.field_info)
             else:
                 letter_input = input('{} podaj spółgłoskę: '.format((str(ps.players_active[0]))))
-                if letter_input not in qs.title.:
+                if letter_input not in qs.word:
                     print(ss.no_letter)
                 else:
-                    while ce.user_point_field() != ('BANKRUT' or '-50%') or letter_input in qs.title.word_pick().letter_in:
+                    while ce.user_point_field() != ('BANKRUT' or '-50%') or letter_input in qs.word:
                         ce.user_point_field()
                         print('Grasz o {} zł' .format(ce.user_point_field()))
         elif main.players_number == 2:
             for i in range(len(ps.players_active)):
                 pass
 draws = Draws()
-
