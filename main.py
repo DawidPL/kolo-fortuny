@@ -21,8 +21,8 @@ class Main:
                 print(ss.start_game_info)
                 print(*players_list, sep=', ')
             ps.players_active.extend(players_list)
-            print(qs.title.word_shuffle())
-            print(qs.title.word_pick())
+            print(qs.category_pick)
+            print(qs.word_shuffle)
             print(ds.draws.random_field())
 
 st = Main()
