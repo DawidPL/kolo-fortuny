@@ -1,4 +1,4 @@
-from collections import mysql.connector
+import mysql.connector
 from mysql.connector import Error
 
 def add_word(category, title):
