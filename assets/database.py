@@ -19,7 +19,7 @@ def add_word(category, title):
         if (connection.is_connected()):
             connection.close()
 
-def get_name():
+def get_name(number):
     try:
         connection = mysql.connector.connect(
             host = 'localhost',
@@ -27,17 +27,29 @@ def get_name():
             password = 'password',
             database = 'game'
             )
-        cursor = mydb.cursor()
-        cursor.execute('SELECT user_name FROM questions')
-        records = cursor.fetchone()
-        for row in records:
-            print ('Kategoria : ', row[1],)
+        cursor = connection.cursor()
+        cursor.execute(f'SELECT user_name FROM questions ORDER BY RAND() LIMIT {number}')
+        records = cursor.fetchall()
+        users_name = [row for row in records]
         cursor.close()
+        return users_name
     except Error:
-        print('MySQL connection error: {}'.format(Error))
+        print(f'MySQL connection error: {Error}')
     finally:
         if (connection.is_connected()):
-            mySQLconnection.close()
+            connection.close()
+
+def get_word():
+    try:
+        connection = mysql.connecter.connect(
+            host = 'localhost',
+            user = 'root',
+            password = 'password',
+            database = 'game'
+        )
+        cursor = connection.cursor()
+        cursor.execute(f'SELECT category, title FROM questions ORDER BY RAND() LIMIT 1')
+        records = cursor.fetchall()
 
 #cursor.execute('CREATE DATABASE game')
 #cursor.execute('CREATE TABLE users(user_id INT PRIMARY KEY AUTO_INCREMENT, user_name VARCHAR(20))')
