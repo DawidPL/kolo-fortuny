@@ -2,7 +2,7 @@
 
 [You can find me here](https://dawidh.pl/)
 
-### A simple console game referring to the popular game show. I create it for training purposes and it is not finished yet.
+### A simple game referring to the popular game show. I create it for training purposes and it is not finished yet.
 
 
 ### Technologies used:
